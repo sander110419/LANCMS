@@ -1,0 +1,455 @@
+version 0.98.3
+
+- fixed: display of certain map thumbnails in server.php and gamerequest.php
+- fixed: bug in users.php causing mysql errors when trying to list sharenames (bug 1489157)
+- updated: /online has latest genesis files
+- updated: more heavy lang updates
+- updated: structuretree now built using get_lang - removes need for structuretree_(lang).php files
+- fixed: bug in admin_prize_control (bug 1491665)
+- updated: bugfixes / minor improvements to /online
+- fixed: BF2 bug in Squery...still not 100%...but working
+- added: voice server module with support for teamspeak and ventrilio
+- changed: shoutbox entry moved to top of page for convience
+- added: pizza orders mod v1.9 from skullshot
+- added: pizza toggle
+- changed: music path setting now allows for full path input
+- added: music module now checks if music files directory exists
+- changed: regex now used to check/add trailing slash on music path
+- fixed: installer missing some values for messaging with tournament installs (bug 1508150)
+- fixed: shoutbox string escaping bug (bug 1516168)
+- fixed: certain security flaws in the _functions.php, _universal_nopost.php, admin_resetpassword.php, admin_seeding.php, admin_servers.php, caffeine.php, and login.php files (this update is highly recommended)
+- changed: removed the phpinfo() command from phpinfo.php and the SQuery software debug.php file. this is to prevent unwanted disclosure of information
+- changed: password entry fields in admin_resetpassword.php are now of the "password" type
+- changed: usernames can only contain letters, numbers, and underscores (this does not affect existing usernames)
+- fixed: security exploit in the SQuery software
+- fixed: database glitch in round robin scoring (fix requires re-starting tournaments)
+- changed: made upload.php more secure
+- fixed: upload.php verifies the file extension for game demo files
+- changed: upload.php restricts image files to the GIF format, the JPEG format, and the PNG format
+- changed: the registration process imposes a 40 character length limit on new usernames
+- fixed: a bug and certain security flaws in the cl_display.php file
+- fixed: certain security flaws in the messaging.php file
+- added: messaging code verifies that the recipient exists before sending a message
+- changed: certain text messages in the messaging.php file
+- changed: removed a possibly unwanted semicolon from the messaging.php code
+- added: a breadcrumb hyperlink for the messaging page was added to the structuretree.php file (added proper language compatibilty in breadcrumb)
+- fixed: a certain security flaw in the disp_tournament.php file (plus some other possible security flaws in the file)
+- fixed: a certain security flaw in the admin_disp_tournament.php file
+- fixed: a certain security flaw in the admin_gamingrig.php file
+- fixed: the admin_gamingrig.php page now references the correct db table fields and changes can be saved (bug 1538963)
+- fixed: certain security flaws in the admin_mapvoting.php file
+- changed: disp_schedule now always displays end as end of event time (bug 1491283)
+- fixed: XSS vulnerability and added new function get_script_name
+- added: hyperlink on upper right next to "profile" for messaging page
+
+version 0.98.2
+
+- updated: SQuery to version 4.5
+- updated: lang stuff heavily; updated all data in en.php and structuretree_en.php in /lang folder 
+- added: option for admin to e-mail all users
+- fixed: possiblity of loop in login.php for already loged in users
+- added: messaging module for users
+- added: custom date formatting in admin options
+- added: users may choose (via profile) their own language, skin, date format (admin may override skin choice)
+- fixed: bug in chng_prizes (bug 1441989)
+- fixed: bug in admin_tournament_start (bug 1440595)
+- fixed: bug in admin_techsupport, sql error when trying to update a ticket (bug 1438147)
+- fixed: bug in maps.php caused tournament map voting to throw sql errors
+- changed: usernames to NO longer be case sensitive (By popular demand)
+- fixed: security exploit in SQuery (highly recommend getting this update) (bug 1484102)
+- fixed: bug in foodrun (bug 465249)
+- fixed: bug in _functions.php dealing with the new language system
+- updated: admin_index.php staff settings position
+- fixed: bug with install script on mysql 4.x
+- added: check existance of language files
+- updated: created/moved/consolidated functions for listing installed skins, languages, dates
+- updated: removed language option from admin_config as it is in admin_index (removed language field from config table in db too)
+- updated: included skins now all support i18n
+- fixed: minor typos in some tournament code
+
+version 0.98.1
+
+- added: page to select and arrange index page modules...still requires the corresponsing toggle to be on
+- fixed: bug where hidden form fields were not being added to forms, game request page was broke because of this
+- added: many different error messages for upload failures in music.php
+- fixed: bug where mp3's with only id3v1 tags would only store the first letters of artist, title, and genre
+- fixed: bug when gamerequests corrosponded to a server other then one in server list
+- fixed: mp3 id3v1 bug on music scan function also
+- fixed: bug in seating.php which kept you from selecting certain seats
+- fixed: bug in upgrade.php that caused the update query from 0.98.0.0 - 0.98.0.1 to not be accepted if the admin has added more games to the list.
+- fixed: bug in admin_tournaments where server settings and rules fields where not being cleaned for database entry (bug 1403959)
+- added: new theme "TigerLAN" from FHS University
+- fixed: structure tree entry for sponsors page added
+- added: new theme "GRLAN" from Grand Rapids, MI LAN group
+- fixed: removed old button for time remaining...now use module mover
+- fixed: viewserver.php now properly shows server map thumbnails
+- fixed: everything should be 12-hour time format now (bug 1413193)
+- fixed: bug with modifyable textarea data (bug 1408953)
+- fixed: mod_tournament not word wrapping soon enough causing tournament to use 2 lines
+
+version 0.98.0.1
+
+- fixed: license saying GNU in the title instead of QPL (bug 1386393)
+- fixed: bug with prize control lock field (bug 1386466)
+- fixed: glitch in which servers would incorrectly show as passworded
+- fixed: bug in mod_news (bug 1389193)
+- fixed: bunch of problems with SQuery
+- updated: readme.txt
+- fixed: error messages not being displayed in install/install.php
+- updated: copyright image to show 2006
+
+version 0.98
+
+- added: Jukebox function and music player
+- fixed/added: SQuery and added all available known games and map pics etc.
+- added: Staff pages, module and options
+- updated: link to music pages in skins
+- added: sponsors/banners pages, module and options
+- removed: PEAR database abstraction layer
+- fixed: added 'add tournament' link in admin control panel and made ' >>>> Tournaments' no longer the link to add tournament
+- updated: changed the way the mysql connection was setup and made it check for problems, now displays nice error message and resolutions instead of can't find files etc.
+- updated: removed most settings from _config.php and added them into the database
+- added: _database.php this is where install.php will output database settings
+- updated: added a database field to turn tournament mode on and off then made changes in alp to support this, all 3 packages of alp can now be shipped as one and configured during install to which one you want
+- disabled: files module (right hand side on index page)
+- updated: sponsors/banner pages now allow image size control
+- added: Genesis (database abstraction layer made by alp developers)
+- added: start and end time to time remaining module
+- updated: all calls in tournaments.php use genesis
+- fixed: undefined function errors on tournaments.php
+- added: method "quote" to genesis
+- updated: all mysql calls to Genesis calls
+- added: time to process page and number of queries to database now displayed at bottom of page
+- changed: all short php tags to long tags <?php (many throughout ALP)
+- changed: <br> to <br /> for XHTML 1.0 compliance
+- fixed: many queries that used querystr instead of querystr2
+- fixed: current_security_level() was querying the database everytime it was called to get user information for security level.  Changed it so it returns a now stored variable, serious ALP preformance boost, some pages were doing 90 queries to the database now do 30 queries, major speed boost.
+- fixed: globalised $dbc calls in functions
+- fixed: $$dbc-> calls in several places
+- added: option to allow guests to see poll results
+- fixed: many globals related bugs in music/jukebox
+- updated: staff pages now only show photo container if photos are enabled.
+- fixed: short tags in viewserver.php
+- updated: /install/install.php
+- added: new settings page and moved old settings page to more settings
+- updated: disp_teams.php lock/unlock button changes depending on status of lock, 
+- fixed: no longer need to select tournament locking from teams list
+- added: favicon.ico and <link rel> html for it
+- added: new skin default_blueblack
+- added: voting/playist controls now on music jukebox
+- fixed: bug in disp_users.php
+- fixed: alp to force php to not show uninitialized variables errors if php is not set for that
+- fixed: display_table and display_solo now has title and data alternating row color formatting
+- updated: techsupport module now has ticket assign and extended information
+- added: MySQLi database abstraction layer of genesis and added option in install
+- updated: time entries and time displays to show/use 12 hour time and not 24 hour. (makes it easier to tell time)
+- updated: benchmark fields
+- fixed: go image not being inline with text in Firefox
+- added: go arrow and link on gaming rigs module, added go arrow on events sponsors module
+- fixed: mysql_ calls in techsupport files
+- updated: gaming rig information and settings
+- moved: gaming rig entry form into profile settings
+- updated: completly rewrote mod_gamingrig.php, went from 400+ lines of code to around 37 with a lot less SQL calls.
+- updated: sharename settings entry and display
+- removed: chng_gamingrig.php - now we use chng_userinfo.php
+- updates: to squery class for increased performance
+- updates: to all server pages and game request pages
+- changed: open game request link in control panel to open game request list from open game request change
+- fixed: bug in chg_teams.php with bad link and wrong column names
+- updated: updated the extra sort flag to play selection query in phpcast to ensure incomplete songs get played 
+- updated: viewserver.php to be more strict on sizes to make it look more clean
+- updated: admin_index.php and chng_userinfo.php to be a little more cleaner and easier to understand
+- added: redirect files link setting in more settings
+- fixed: divide by zero error when starting single/double elim tournaments
+- fixed: recache tourney page link showing up, even though caching tourney is disabled
+- added: bottom footer on disp_tourney.php, to display query counts
+- removed: links to admin_disp_tournament.php until we make that page better
+- fixed: tournament status not correct on tournaments.php page displaying all tournaments
+- fixed: alp_computer_games setting, so that alp tournaments now says servers instead of location in the brackets, when running a computer game tournament
+- changed: the team selection for tourney starts to have full list
+- updated: team selection list for tournaments
+- changed: tournaments bracket to always keep showing starting team, instead of highlighting winner
+- fixed: bug in cl_validation with required input fields and zero-values being considered empty results
+- updated: music stream now exits playback loop when client disconnects
+- updated: music stream only increments played counter when entire song is played through
+- fixed: improper database table structures where not null was used, but should have been null
+- fixed: improper database float usage
+- fixed: changed all database floats to doubles
+- fixed: improper database column sizes
+- added: variable $database['strict_mode'] in config to manually force MySQL 5 to turn strict mode on or off
+- changed: tournament brackets to always keep showing starting team, instead of highlighting winner
+- changed: tournament bracekts to only show numbers when a score is entered 
+- added: important info module
+- added: music stream playback skip/next track control
+- added: music stream now kills itself if another stream is running
+- updated: music stream force next admin function now skips current song too
+- added: music module options to "more settings"
+- updated: moved music stream id generation so its passed to phpcast by the player (fixes players fighting over stream and unauthorised streaming)
+- fixed: default news output and news display
+- fixed: select lists with only one option, to not force you to that selection without the coice of a blank option
+- fixed: ambiguous var references in online functions.php
+- fixed: In seating.php BL select didn't look uniform
+- removed: hard coded userid = 3 in sql query for posted by in foodrun.php
+- added: admin_add_dummy_users.php for testing purposes
+- updated: top row links to properly not show up in tournament mode
+- updated: all skins to use a template for top row links
+- fixed: admin_index.php to not show somethings in tournament mode, and removed excessive checks for tournament mode
+- changed: admin_config.php to use pull down time settings
+- fixed: bug in boiloff tournament in tournaments.php
+- added: no-cache META tags in the <head> of all pages, fixes caching problems, ie. with Opera
+- fixed: seating.php now has constraints on select to prevent null or oversized seat position selection
+- changed: admin_resetpassword.php to now allow you to reset other super admin passwords
+- fixed: bug in admin_news post where it was not having the announcment post cleaned to be sql safe, caused errors when magic quotes was off
+
+version 0.97.3.7
+
+- fixed: fixed a major bug in tournaments
+
+version 0.97.3.6
+
+- added: developers added to alp (curium, havoc, skullshot)
+- fixed: display of prize print (bug 1033868)
+- fixed: prize drawing (bug 1195721)
+- fixed: prize control bugs
+- fixed: login select dropdown bugs
+- fixed: techsupport link after submit (bug 1195686) 
+- fixed: data handling in techsupport (bug 1195689)
+- fixed: display of poll results (bug 1089317)
+- fixed: display of polls when odd number of polls (bug 946627)
+- fixed: display of results on themarathon.php (bug 1091695)
+- fixed: bug in multiple pages with entering times of 00 (bug 1056509)
+- fixed: seating_map invalid variable references (bug 1050364)
+- fixed: sql in tournament_10 and 12 (bug 1334485)
+- added: bug info to credits (request 1052612)
+- fixed: register globals needed for FFA (bug 1168541)
+- fixed: change password again link
+- added: beta version of alp online pre-event registration and payment site/pages
+- updated: copyright images to 2005
+- updated: credits.php with more information
+- updated: _insert_queries.php and upgrade.php to update database to show version 0.97.3.6
+- fixed: fixed arrow graphic not being inline with text when using Firefox
+- fixed: mysql warning in caffeine cheaters
+- fixed: breadcrumb in chng game request (affected structuretree.php)
+- fixed: mysql warnings in multiple pages (bug 1039254, 1106326)
+
+version 0.97.3.5
+
+- bugfixes
+- added: mdb2/pear modules
+- other undocumented changes...
+
+version 0.97.3d
+
+- added: hlsw connect to gamerequest servers, servers in the servers link. (yet to add to tournament bracket servers).
+- fixed: files list game updates / maps link bug.
+- added: boiloff tournament type.
+- changed: redirect page has no delay when no errors are needed to be displayed.
+
+version 0.97.2d
+
+- fixed: the module placement bug with right & main modules
+- changed: module order assigned in the skin _config.inc.php
+- changed: if you delete a module placement from the skin _config.inc.php, it won't appear in the modules at all.
+- changed: seperated game port from query port in server queries so as not to confuse users about where to connect to the servers.
+- changed: added $country variable to /_config.php
+- added: added minimum security level to schedule items.
+- added: mapquest link for restaurants.
+- changed: minor changes to disp_schedule. removed string cutoff (large schedule items will wrap). some coloring changes.
+- fixed: round robin tournament displayed servers even when you didn't input any.
+- fixed: round robin scoring bugs, displayed winners when tournament hadn't started, didn't display winners when byes were present.
+- fixed: graph for round robin tournaments didn't include byes (tournaments.php)
+- added: maximum teams per tournament option.
+
+version 0.97.1 patch
+
+- fixed: error with default skin usage for caffeine log.
+- fixed: error with credits images on caffeine log with old layout.
+- fixed: bug with servers module on index.php -- missing space in the $data sql query.
+- added: links to gamerequest.php from the gamerequest module on index.php.
+- fixed: marathon ranks on disp_users.php.
+
+version 0.97
+
+- updated: improved skinning files. ability to have borderless modules, put placement of modules in the skin files, more options with module placement.
+- fixed: uncentered tables in mozilla.
+- updated: form class is a bit more organized.
+- added: rudimentary tree-based navigation at the top, very primitive, to be improved in the future.
+- added: toggle off and on availability of an internet connection. the only thing it does right now is change the forgotten password link to something actually useful. requires php's mail function.
+- in progress: getting rid of the underline link color bug passively.
+- updated: reimplemented map voting to rely on image thumbnails primarily. made it much less work. all you have to do to add a map to the poll is click a checkbox now. map thumbnails are now organized by game.
+- updated: individual tournament pages - lists prizes available for winning top 4 places, lists results, lists status, team options, maps, link to map voting, etc.
+- added: minor additions and corrections to seating map
+- added: bargraph class file (time remaining, tournament graph, polls, etc).
+- fixed: no longer requires short_open_tags!!!
+- added: gaming rig fields, gaming rig statistics graphs.
+- updated: forms class now allows more than one field per line.
+- added: complete prize drawing functionality.
+- added: page where users can view prizes.
+- added: automatic advancement of users in tournaments with correct score input. (!!!!)
+
+version 0.96.12
+
+- updated: upgrade script now puts in the correct alp version into the master table AUTOMAGICALLY!
+- not updated: the install script is likely to still be outdated due to my forgetfulness.
+- fixed: seating chart bug (really this time).
+
+version 0.96.11
+
+- updated: ALP_satellite MySQL tables.
+- fixed: FFA bug in admin_tournament_start.php that didn't allow more than 1 person per round to advance.
+- added: new and improved seating chart full of seating chart goodness! seriously you need to try this one. support for round tables and individual seats!
+- added: liter option to caffeine tournament.
+- updated: easier (admin-wise) installer.
+
+version 0.96.10
+
+- fixed: missing installer.
+
+version 0.96.9
+
+- fixed: skins incompatability (affects all current skins), needed valign="top".
+- fixed: made skins a requirement on admin control panel.
+- fixed: admin_tournaments.php game select list ordered by name.
+- changed: tournaments.php page more informative, sleek.
+- changed: admin_priv.php to sort by username.
+- fixed: install.php and upgrade.php finally have the right versions.
+- fixed: a few bugs in tournaments.php.
+- fixed: admin_disp_scores.php fixed, now displays user scores properly.
+- fixed: problem with schedule module oversize.
+- borrowed: icons from a wonderful cms package called phpwcms (file names are appropriately named to indicate source).
+- fixed: nl2br bug with textarea's.
+- added: maps voting for tournaments (with limited thumbnails)!
+- and a lot more that didn't get documented (sorry).
+
+version 0.96.8
+
+- fixed: include/modules/mod_admincontrolpanel.php
+- added: index.php portal instead of just a news list.
+- changed: servers.php streamlined.
+- changed: display class changed to have bigger font by default and 100% width.
+- added: ability to hide news postings instead of just deleting them.
+- changed: admin_tournament_unstart.php only displays started tournaments.
+- changed: random method was explained twice on admin_tournament_start.php
+
+version 0.96.7
+
+- MAKE SURE YOU DELETE /_functions.php BUT LEAVE /include/_functions.php INTACT. THANKS. - fixed: typo in install script for toggle table gives errors on admin_toggle.php.
+- changed: upgrade script will correct the above error.
+- added: players can sign up to "pug" in team tournaments. admins can draft available "pug" players.
+- fixed: _function.php references in install and upgrade script changed to proper _config.php.
+
+version 0.96.6
+
+- changed: default skin table structure.
+- fixed: install script error.
+
+version 0.96.5
+
+- fixed: minor problem when two redirect select boxes are displayed on the same page.
+- added: add teams to tournaments.
+- added: a few more toggles to streamline if you want to.
+- added: made the upgrade script less janky (but it's still janky none-the-less)
+- added: 'tournament mode', install script will automatically toggle everything off if you just want to use ALP for tournaments.
+- changed: moved all auth and misc functions to include/_functions.php and renamed variable file to _config.php.
+- changed: priv_level to numeric representation -- also now allows for multiple super administrators.
+- changed: tweaked users page.
+- changed: if less than 3 modules display on left side, defaults the rest to the left side.
+- added: $colors["graphs"] variable to config.
+- fixed: minor cosmetic error with modules, as well as other minor cosmetic changes.
+- changed: default modules are all set on the right now, to change, edit include/_modulesX.php.
+- added: tournament seeding of teams.
+- added: admin delete player or delete team.
+- changed: select menu on disp_teams.php defaults to size 6.
+- changed: all tournament information related to teams is now unmodifiable after tournament creation (random and max team size).
+- added: option to allow one registration per ip address.
+- added: ability to authenticate by ip address instead of using passwords (for long lease DHCP's).
+- added: cache option for large tournament bracket pages -- faster load times!.
+
+version 0.96.4
+
+- changed: credits page.
+- fixed: stupid error on rules link from disp_tournament.php *doh*
+- added: tournament rules link from tournaments.php
+- added: gameid field to servers table.
+- added: admin_serverlist.php to modify generic server list.
+- added: limited GSQlib support for game servers.
+- added: 3 games to the default games list.
+
+version 0.96.3
+
+- changed: minor cosmetic changes in how food runs are displayed in disp_schedule.php.
+- changed: admin can change who posted the food run.
+- fixed: lack of skin colors usage in: _universal.php->display_slim(), skins/default/x.css, skins/default/_top.php, seating.php
+- fixed: minor cosmetic fix in update form type in _universal.php
+- fixed: extra ?> in admin_disp_scores.php
+- fixed: round robin bug for starting team assignments.
+- fixed: round robin bug with team losses.
+- added: error_reporting to install.php.
+- added: create database if doesn't exist in install.php.
+- changed: polls module doesn't display when there are no polls.
+- fixed: caffeine type: coffee wasn't installing right.
+- changed: benchmarks description in admin_toggle.php.
+- fixed: major authentication error allows unauthenticated users to pretend to be authenticated!
+- fixed: seating chart error allows unauthenticated users to sit down.
+- added: tournament notes or rules are displayed on the teams page.
+- changed: minor modifications to internationalization scheme.
+
+version 0.96.2
+
+- wrapper remnants in: clientlisten.php, disp_users.php, disp_tournament.php
+- missing arguments for universal class in: chng_update_scores.php.
+- currently in the middle of starting internationalization procedures for multi-language ALP, please excuse the mess.
+
+version 0.96.1
+
+- attempt to fix some include errors people were having.
+
+version 0.96d
+
+- tournaments re-done from scratch. single elimination, single elimination ffa, double elimination, consolation, and round robin tournament types added. ability to assign teams randomly on the bracket as well as display scores on the bracket. users can submit scores, and added map lists on the tournaments pages.
+- wrapper form class changed to universal class. now one class displays both form pages and 'other' miscellaneous pages.
+- that's all the huge stuff. minor fixes are abundant. if you notice something you like different, good.
+
+version 0.95d
+
+- created install.php to help users install ALP.
+- created upgrade.php to help users upgrade ALP (only works from 0.94d to 0.95d right now).
+- fixed various bugs with the seating.php file (auth.inc.php include remnant, removed index error fix code)
+- changed setcookie behavior for login script (removed path modifier and changed expiration date)
+- added alp version label to _bot.php
+- minor date modifications to users.php
+- gamer proficiency self ratings for more fair random team tournaments
+- major modification to tourn_elimination.php: split partially into admin_tournament_start.php and elim_tournaments.inc.php
+- added ability to change border color
+- removed shoutbox empty table from index page when user is not logged in.
+
+
+version 0.94d
+
+- foodrun and schedule display bug.
+- removal of 6 item news post limit.
+- changed menu bar.
+- caffeine and benchmark select boxes list usernames alphabetically.
+- added shoutbox capability.
+- users bug with default information displayed.
+- removed "starts" from default tournament schedule insert.
+- a few minor wording bugs in the tournament add team page.
+- can add empty team into a tournament.
+- fixed bug with featured gamer displaying with 0 users.
+- changed benchmarks to reflect current software from futuremark.
+- changed tournament administration modification "per_team" field uses current team sizes instead of current per_team value.
+- user defined auto unlock of tournaments (team lock / join lock) (default: 60 minutes)
+- random team tournaments
+
+
+version 0.93d
+
+- tournament coexists with schedule.
+- tech support queue fixed by "nothing" bug.
+- add caffeine - caffeine tournament: delete inclusion of '_caffeine.php' remnant
+- administrator add team - bug fixed that didn't allow administrator to add competitors to 1 player team tournaments.
+- index errors fixed on: users.php
+- date bug fixed on admin_foodrun, admin_schedule, chng_userinfo, foodrun.
+- 0/1 display of booleans on register.php fixed to display yes/no.
+- browser cache problem fix attempt.
+- cleanup of benchmarking code. checks individual benchmarks fields for numeric input, gives passive errors. 
